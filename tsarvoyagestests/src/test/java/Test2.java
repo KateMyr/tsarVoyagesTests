@@ -12,7 +12,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.channels.Selector;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -57,3 +56,17 @@ public class Test2 {
     }
 
 }
+
+    @Test
+    public void firsPage_opens() {
+
+        driver.get("http://tsarvoyages.com");
+        By tabVivreEnRussie;
+        tabVivreEnRussie = By.xpath("//*[@id=\"header\"]/div[2]/div/div[3]/a");
+        driver.findElement(tabVivreEnRussie).click();
+        By SecondPriceSelector = By.xpath("//*[@id=\"page-page\"]/div/div[2]/div/div/div/div[3]/div/div/div[1]/div/ul/li[1]/div/div/div[1]/div[2]/div/span[2]/span[2]");
+        driver.findElement(SecondPriceSelector).click();
+        String currency = driver.findElement(SecondPriceSelector).getText();
+        assertEquals("RUB", currency);
+    }
+
