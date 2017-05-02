@@ -1,8 +1,3 @@
-
-/**
- * Created by katem on 5/1/2017.
- */
-
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -47,7 +42,7 @@ public class Test2 {
     }
 
     @Test
-    public void firstPage_opens() {
+    public void pageWithEuroCurrency() {
         driver.get("https://tsarvoyages.com");
         By PriceSelector = By.xpath("/html/body/div[3]/div[2]/div[2]/div[1]/div[1]/div[4]/div[3]/table/tbody/tr[1]/td[2]/div/span");
         driver.findElement(PriceSelector).click();
@@ -55,11 +50,8 @@ public class Test2 {
         assertEquals("959€", currency);
     }
 
-}
-
     @Test
-    public void firsPage_opens() {
-
+    public void pageWithRubCurrency() {
         driver.get("http://tsarvoyages.com");
         By tabVivreEnRussie;
         tabVivreEnRussie = By.xpath("//*[@id=\"header\"]/div[2]/div/div[3]/a");
@@ -69,4 +61,5 @@ public class Test2 {
         String currency = driver.findElement(SecondPriceSelector).getText();
         assertEquals("RUB", currency);
     }
+}
 
